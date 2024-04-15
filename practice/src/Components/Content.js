@@ -38,15 +38,21 @@ const handleClick = (id)=>{
 
     return(
         <main>
-            <ul>
-                {items.map((item)=>(
-                    <li key ={item.id}>
-                    <input onChange={()=>handleChange(item.id)} type='checkbox' checked={item.checked}/>
-                    <label style={(item.checked)? {textDecoration:"line-through"} : null} onDoubleClick={()=>handleChange(item.id)}>{item.task}</label>
-                    <FaTrashCan role='button' tabIndex='0' onClick={()=>handleClick(item.id)} />
-                </li>
-                ))}    
-            </ul>            
+            {
+                items.length?(
+            
+                    <ul>
+                        {items.map((item)=>(
+                            <li key ={item.id}>
+                            <input onChange={()=>handleChange(item.id)} type='checkbox' checked={item.checked}/>
+                            <label style={(item.checked)? {textDecoration:"line-through"} : null} onDoubleClick={()=>handleChange(item.id)}>{item.task}</label>
+                            <FaTrashCan role='button' tabIndex='0' onClick={()=>handleClick(item.id)} />
+                        </li>
+                        ))}    
+                    </ul> 
+                     ) :
+                    <p> Your list is empty</p>
+            }    
         </main>
 
     )
