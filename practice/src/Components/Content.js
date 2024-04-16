@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa";
 
 const Content = () => {
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("todo_list"))
+  const [items, setItems] = useState([]
     //     [{
     //     id:1,
     //     checked: true,
@@ -64,6 +63,13 @@ const Content = () => {
 
   const [search, setSearch] = useState("");
 
+
+  //useEffect
+  useEffect(()=>{
+    JSON.parse(localStorage.getItem("todo_list"))
+  },[items])
+
+
   return (
     <main>
       <form className="addForm" onSubmit={handleSubmit}>
@@ -78,7 +84,10 @@ const Content = () => {
           placeholder="Add item"
           value={newItem}
         />
-        <button type="submit" onClick={()=>inputRef.current.focus()}>
+        <button 
+        type="submit" 
+        onClick={()=>inputRef.current.focus()}
+        >
           <FaPlus  />
         </button>
       </form>
@@ -86,6 +95,7 @@ const Content = () => {
       <form className="searchForm" onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="search">Search</label>
         <input
+        
           type="text"
           placeholder="search Item"
           value={search}
