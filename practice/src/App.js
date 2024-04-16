@@ -12,7 +12,7 @@ const title = "My todo list"
     <div >
       <Header title={title} />
       
-      <Content/>
+      <Content />
       <Footer/>
       
     </div>
