@@ -7,28 +7,13 @@
     },
     {
       "id": "2",
-      "checked": false,
+      "checked": true,
       "task": "Practice Coding"
     },
     {
       "id": "3",
-      "checked": true,
+      "checked": false,
       "task": "Take rest"
-    },
-    {
-      "id": "4",
-      "checked": true,
-      "task": "Eat well"
-    },
-    {
-      "id": "5",
-      "checked": true,
-      "task": "Play"
-    },
-    {
-      "id": "6",
-      "checked": true,
-      "task": "add"
     }
   ]
 }

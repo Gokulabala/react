@@ -54,12 +54,20 @@ const Content = () => {
   
   };
 
-  const handleClick = (id) => {
+  const handleClick = async(id) => {
     const deleteItem = items.filter((item) => {
       return item.id !== id;
     });
     setItems(deleteItem);
     // localStorage.setItem("todo_list", JSON.stringify(deleteItem));
+
+    const deleteOptions = {
+      method: 'DELETE',
+      
+    }
+
+    const result = await apiRequest(`${API_URL}/${id}`, deleteOptions)
+    if(result) setFetchError(result)
   };
 
   const [newItem, setNewItem] = useState("");
